@@ -12,9 +12,9 @@ findme
   :alt: Supported Python versions
   :target: https://pypi.org/project/findme/
 
-.. |CI| image:: https://travis-ci.com/Julian/findme.svg?branch=master
+.. |CI| image:: https://github.com/Julian/findme/workflows/CI/badge.svg
   :alt: Build status
-  :target: https://travis-ci.com/Julian/findme
+  :target: https://github.com/Julian/findme/actions?query=workflow%3ACI
 
 .. |Codecov| image:: https://codecov.io/gh/Julian/findme/branch/master/graph/badge.svg
   :alt: Codecov Code coverage
