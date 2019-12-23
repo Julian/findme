@@ -1,2 +1,5 @@
-import importlib_metadata
-__version__ = importlib_metadata.version(__name__)
+try:
+    from importlib import metadata
+except ImportError:
+    import importlib_metadata as metadata
+__version__ = metadata.version("findme")
