@@ -6,14 +6,21 @@ from findme import __version__, _cli
 
 
 def findme(*args):
-    return CliRunner().invoke(_cli.main, args)
+    return CliRunner().invoke(_cli.main, args, catch_exceptions=False)
+
 
 
 class TestFindMe(TestCase):
+    def succeed(self, *args):
+        result = findme(*args)
+        self.assertEqual(result.exit_code, 0)
+        return result.output
+
     def test_it_finds_stuff(self):
-        result = findme("integers", "x", "x>10")
-        self.assertTrue(int(result.output) > 10)
+        import pudb; pu.db
+        output = self.succeed("integers", "x>10")
+        self.assertTrue(int(output) > 10)
 
     def test_version(self):
-        result = findme("--version")
-        self.assertIn(__version__, result.output)
+        output = self.succeed("--version")
+        self.assertIn(__version__, output)
